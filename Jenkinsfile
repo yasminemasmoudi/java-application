@@ -18,7 +18,7 @@ pipeline{
             steps{
                 
                 script{
-                    bat './mvnw test'
+                    sh 'mvn test'
                 }
             }
         } 
