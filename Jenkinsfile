@@ -46,7 +46,7 @@ pipeline{
         stage('Static code analysis'){
             
             steps{
-                script{
+                scripts{
                     withSonarQubeEnv(credentialsId: 'sonarqube-api-key') {
                     bat "mvn clean package sonar:sonar"
                     }
@@ -56,7 +56,7 @@ pipeline{
         stage('Quality Gate status'){
             
             steps{
-                script{
+                scripts{
                     waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-api-key' {
                     }
                 }       
